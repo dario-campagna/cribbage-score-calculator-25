@@ -8,12 +8,16 @@
   - Pairs
   - Flush
 - Print the score
+- Rank
+  - Numeric value associated and used for the fifteen twos
+  - Order
+  - Distinct values to be used for pairs
 
 # Tests
 
 - "3♥" -> Card with suite Hearts
 - ~~"3♥" -> Card with rank 3~~
-- "0♥" -> Card with rank 10
+- ~~"0♥" -> Card with rank 10~~
 - "J♥" -> Card with rank Jack and suite Hearts
 - "5♣" -> Card with rank 5 and suite Clubs
 - "6♦" -> Card with rank 6 and suite Diamonds
