@@ -15,7 +15,7 @@
 
 # Tests
 
-- "3♥" -> Card with suite Hearts
+- ~~"3♥" -> Card with suite Hearts~~
 - ~~"3♥" -> Card with rank 3~~
 - ~~"0♥" -> Card with rank 10~~
 - "J♥" -> Card with rank Jack and suite Hearts
