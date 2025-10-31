@@ -1,5 +1,6 @@
 package sdm.running.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CribbageHand {
@@ -20,6 +21,17 @@ public class CribbageHand {
     }
 
     public int getScore() {
+        List<Card> allCards = new ArrayList<>(handCards);
+        allCards.add(starterCard);
+        boolean hasOnePair = false;
+        while (allCards.size() > 1 && !hasOnePair) {
+            Card card = allCards.removeFirst();
+            hasOnePair = allCards.stream().anyMatch(c -> c.rank() == card.rank());
+        }
+        if (hasOnePair) {
+            return 2;
+        }
+        
         int score = 0;
         score += pointsForFlush();
         score += pointsForHisNob();
