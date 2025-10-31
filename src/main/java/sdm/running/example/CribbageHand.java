@@ -20,6 +20,10 @@ public class CribbageHand {
     }
 
     public int getScore() {
+        char suite = handCards.getFirst().suite();
+        if (handCards.stream().allMatch(card -> card.suite() == suite)) {
+            return 4;
+        }
         if (handCards.contains(new Card('J', starterCard.suite()))) {
             return 1;
         }

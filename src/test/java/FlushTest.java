@@ -35,4 +35,18 @@ public class FlushTest {
         );
         assertEquals(0, cribbageHand.getScore());
     }
+
+    @Test
+    void four_points_for_hand_cards_of_same_suite() {
+        CribbageHand cribbageHand = new CribbageHand(
+                Arrays.asList(
+                        new Card('3', '♣'),
+                        new Card('7', '♣'),
+                        new Card('A', '♣'),
+                        new Card('K', '♣')
+                ),
+                new Card('J', '♦')
+        );
+        assertEquals(4, cribbageHand.getScore());
+    }
 }
