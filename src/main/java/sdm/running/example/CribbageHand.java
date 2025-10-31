@@ -1,5 +1,7 @@
 package sdm.running.example;
 
+import org.paukov.combinatorics3.Generator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,31 +22,15 @@ public class CribbageHand {
         return handCards;
     }
 
-    public int getScore() {
+    public long getScore() {
         List<Card> allCards = new ArrayList<>(handCards);
         allCards.add(starterCard);
-
-        boolean hasThreeOfAKind = false;
-        while (allCards.size() > 1 && !hasThreeOfAKind) {
-            Card card = allCards.removeFirst();
-            long count = allCards.stream().filter(c -> c.rank() == card.rank()).count();
-            if (count > 1) {
-                hasThreeOfAKind = true;
-            }
-        }
-        if (hasThreeOfAKind) {
-            return 6;
-        }
         
         allCards = new ArrayList<>(handCards);
         allCards.add(starterCard);
-        boolean hasOnePair = false;
-        while (allCards.size() > 1 && !hasOnePair) {
-            Card card = allCards.removeFirst();
-            hasOnePair = allCards.stream().anyMatch(c -> c.rank() == card.rank());
-        }
-        if (hasOnePair) {
-            return 2;
+        long pairs = Generator.combination(allCards).simple(2).stream().filter(pair -> pair.getFirst().rank() == pair.getLast().rank()).count();
+        if (pairs > 0) {
+            return pairs * 2;
         }
         
         int score = 0;

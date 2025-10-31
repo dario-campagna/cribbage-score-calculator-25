@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import sdm.running.example.Card;
 import sdm.running.example.CribbageHand;
@@ -34,5 +35,19 @@ public class PairsTest {
                 new Card('6', '♣')
         );
         assertEquals(6, cribbageHand.getScore());
+    }
+
+    @Test
+    void twelve_points_for_four_of_a_kind() {
+        CribbageHand cribbageHand = new CribbageHand(
+                Arrays.asList(
+                        new Card('6', '♥'),
+                        new Card('Q', '♦'),
+                        new Card('Q', '♠'),
+                        new Card('Q', '♣')
+                ),
+                new Card('Q', '♠')
+        );
+        assertEquals(12, cribbageHand.getScore());
     }
 }
