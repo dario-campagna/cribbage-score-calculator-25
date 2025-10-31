@@ -23,6 +23,21 @@ public class CribbageHand {
     public int getScore() {
         List<Card> allCards = new ArrayList<>(handCards);
         allCards.add(starterCard);
+
+        boolean hasThreeOfAKind = false;
+        while (allCards.size() > 1 && !hasThreeOfAKind) {
+            Card card = allCards.removeFirst();
+            long count = allCards.stream().filter(c -> c.rank() == card.rank()).count();
+            if (count > 1) {
+                hasThreeOfAKind = true;
+            }
+        }
+        if (hasThreeOfAKind) {
+            return 6;
+        }
+        
+        allCards = new ArrayList<>(handCards);
+        allCards.add(starterCard);
         boolean hasOnePair = false;
         while (allCards.size() > 1 && !hasOnePair) {
             Card card = allCards.removeFirst();

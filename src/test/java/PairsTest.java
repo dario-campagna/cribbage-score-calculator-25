@@ -21,4 +21,18 @@ public class PairsTest {
         );
         assertEquals(2, cribbageHand.getScore());
     }
+
+    @Test
+    void six_points_for_three_of_a_kind() {
+        CribbageHand cribbageHand = new CribbageHand(
+                Arrays.asList(
+                        new Card('A', '♥'),
+                        new Card('A', '♦'),
+                        new Card('A', '♠'),
+                        new Card('2', '♣')
+                ),
+                new Card('6', '♣')
+        );
+        assertEquals(6, cribbageHand.getScore());
+    }
 }
