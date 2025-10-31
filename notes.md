@@ -27,5 +27,5 @@
   - ~~"5♥5♦5♠5♣7♣" -> Hand Cards are Five of each suite~~
 - Flush
   - ~~"3♣7♣A♣K♣J♦" -> 4 points~~
-  - "3♣7♣A♣K♣J♣" -> 5 points
+  - ~~"3♣7♣A♣K♣J♣" -> 5 points~~
   - ~~"J♣7♥A♣K♦3♣" -> 1 points (one for his nob)~~

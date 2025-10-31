@@ -20,10 +20,25 @@ public class CribbageHand {
     }
 
     public int getScore() {
+        int score = 0;
+        score += pointsForFlush();
+        score += pointsForHisNob();
+        return score;
+    }
+
+    private int pointsForFlush() {
+        int points = 0;
         char suite = handCards.getFirst().suite();
         if (handCards.stream().allMatch(card -> card.suite() == suite)) {
-            return 4;
+            points += 4;
+            if (handCards.getFirst().suite() == starterCard.suite()) {
+                points++;
+            }
         }
+        return points;
+    }
+
+    private int pointsForHisNob() {
         if (handCards.contains(new Card('J', starterCard.suite()))) {
             return 1;
         }
