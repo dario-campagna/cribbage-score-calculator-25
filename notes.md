@@ -22,6 +22,11 @@
 - "5♣" -> Card with rank 5 and suite Clubs
 - "6♦" -> Card with rank 6 and suite Diamonds
 - "A♠" -> Card with rank Ace and suite Spades
-- "5♥5♦5♠5♣7♣" -> Cribbage Hand with Hand Cards ... and Starter Card Seven of Clubs
+- ~~"5♥5♦5♠5♣7♣" -> Cribbage Hand with Hand Cards ... and Starter Card Seven of Clubs~~
  - ~~"5♥5♦5♠5♣7♣" -> Starter Card is Seven of Clubs~~
- - "5♥5♦5♠5♣7♣" -> Hand Cards are Five of each suite
+ - ~~"5♥5♦5♠5♣7♣" -> Hand Cards are Five of each suite~~
+
+- Flush
+ - "3♣7♣A♣K♣J♦" -> 4 points
+ - "3♣7♣A♣K♣J♣" -> 5 points
+ - ~~"J♣7♥A♣K♦3♣" -> 1 points (one for his nob)~~

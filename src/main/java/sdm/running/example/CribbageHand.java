@@ -18,4 +18,11 @@ public class CribbageHand {
     public List<Card> handCards() {
         return handCards;
     }
+
+    public int getScore() {
+        if (handCards.contains(new Card('J', starterCard.suite()))) {
+            return 1;
+        }
+        return 0;
+    }
 }
