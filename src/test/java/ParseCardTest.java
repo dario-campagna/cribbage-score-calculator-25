@@ -1,10 +1,9 @@
 import org.junit.jupiter.api.Test;
-import sdm.running.example.Card;
 import sdm.running.example.CardParser;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class ParseHandTest {
+public class ParseCardTest {
 
     private final CardParser cardParser = new CardParser();
 
