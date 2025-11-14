@@ -19,7 +19,7 @@ public class FlushTest {
                 ),
                 new Card('3', '♣')
         );
-        assertEquals(1, cribbageHand.getScore());
+        assertEquals(1, cribbageHand.computeScore());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class FlushTest {
                 ),
                 new Card('3', '♦')
         );
-        assertEquals(0, cribbageHand.getScore());
+        assertEquals(0, cribbageHand.computeScore());
     }
 
     @Test
@@ -47,7 +47,7 @@ public class FlushTest {
                 ),
                 new Card('J', '♦')
         );
-        assertEquals(4, cribbageHand.getScore());
+        assertEquals(4, cribbageHand.computeScore());
     }
 
     @Test
@@ -61,6 +61,6 @@ public class FlushTest {
                 ),
                 new Card('J', '♣')
         );
-        assertEquals(5, cribbageHand.getScore());
+        assertEquals(5, cribbageHand.computeScore());
     }
 }

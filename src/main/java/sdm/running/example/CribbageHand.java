@@ -22,21 +22,25 @@ public class CribbageHand {
         return handCards;
     }
 
-    public long getScore() {
+    public long computeScore() {
+        int score = 0;
+        score += pointsForFlush();
+        score += pointsForHisNob();
+        score += pointsForPairs();
+        return score;
+    }
+
+    private long pointsForPairs() {
         List<Card> allCards = new ArrayList<>(handCards);
         allCards.add(starterCard);
-        
+
         allCards = new ArrayList<>(handCards);
         allCards.add(starterCard);
         long pairs = Generator.combination(allCards).simple(2).stream().filter(pair -> pair.getFirst().rank() == pair.getLast().rank()).count();
         if (pairs > 0) {
             return pairs * 2;
         }
-        
-        int score = 0;
-        score += pointsForFlush();
-        score += pointsForHisNob();
-        return score;
+        return 0;
     }
 
     private int pointsForFlush() {

@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import sdm.running.example.Card;
 import sdm.running.example.CribbageHand;
@@ -20,7 +19,7 @@ public class PairsTest {
                 ),
                 new Card('6', '♣')
         );
-        assertEquals(2, cribbageHand.getScore());
+        assertEquals(2, cribbageHand.computeScore());
     }
 
     @Test
@@ -34,7 +33,7 @@ public class PairsTest {
                 ),
                 new Card('6', '♣')
         );
-        assertEquals(6, cribbageHand.getScore());
+        assertEquals(6, cribbageHand.computeScore());
     }
 
     @Test
@@ -48,6 +47,6 @@ public class PairsTest {
                 ),
                 new Card('Q', '♠')
         );
-        assertEquals(12, cribbageHand.getScore());
+        assertEquals(12, cribbageHand.computeScore());
     }
 }
