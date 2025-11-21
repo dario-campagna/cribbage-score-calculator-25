@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class MutipleRulesTest {
+public class MultipleRulesTest {
 
     @Test
     void four_card_of_the_same_suite_and_a_pair() {
