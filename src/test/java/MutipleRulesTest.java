@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 import sdm.running.example.Card;
 import sdm.running.example.CribbageHand;
+import sdm.running.example.Rank;
 
 import java.util.Arrays;
 
@@ -12,12 +13,12 @@ public class MutipleRulesTest {
     void four_card_of_the_same_suite_and_a_pair() {
         CribbageHand cribbageHand = new CribbageHand(
                 Arrays.asList(
-                        new Card('3', '♣'),
-                        new Card('7', '♣'),
-                        new Card('A', '♣'),
-                        new Card('K', '♣')
+                        new Card(Rank.THREE, '♣'),
+                        new Card(Rank.SEVEN, '♣'),
+                        new Card(Rank.ACE, '♣'),
+                        new Card(Rank.KING, '♣')
                 ),
-                new Card('K', '♦')
+                new Card(Rank.KING, '♦')
         );
         assertEquals(6, cribbageHand.computeScore());
     }

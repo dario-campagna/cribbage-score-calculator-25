@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 import sdm.running.example.Card;
 import sdm.running.example.CribbageHand;
 import sdm.running.example.HandParser;
+import sdm.running.example.Rank;
 
 import java.util.Arrays;
 import java.util.List;
@@ -14,21 +15,21 @@ public class ParsHandTest {
     void starter_card_is_Seven_of_Clubs() {
         CribbageHand cribbageHand = new HandParser().parse("5♥5♦5♠5♣7♣");
         Card starterCard = cribbageHand.starterCard();
-        assertEquals(new Card('7', '♣'), starterCard);
+        assertEquals(new Card(Rank.SEVEN, '♣'), starterCard);
     }
 
     @Test
     void starter_card_is_Queen_of_Hearts() {
         CribbageHand cribbageHand = new HandParser().parse("5♥5♦5♠5♣Q♥");
         Card starterCard = cribbageHand.starterCard();
-        assertEquals(new Card('Q', '♥'), starterCard);
+        assertEquals(new Card(Rank.QUEEN, '♥'), starterCard);
     }
 
     @Test
     void starter_card_is_Ace_of_Hearts() {
         CribbageHand cribbageHand = new HandParser().parse("5♥5♦5♠5♣A♥");
         Card starterCard = cribbageHand.starterCard();
-        assertEquals(new Card('A', '♥'), starterCard);
+        assertEquals(new Card(Rank.ACE, '♥'), starterCard);
     }
 
     @Test
@@ -36,10 +37,10 @@ public class ParsHandTest {
         CribbageHand cribbageHand = new HandParser().parse("5♥5♦5♠5♣7♣");
         List<Card> handCards = cribbageHand.handCards();
         List<Card> expectedHandCards = Arrays.asList(
-                new Card('5', '♥'),
-                new Card('5', '♦'),
-                new Card('5', '♠'),
-                new Card('5', '♣')
+                new Card(Rank.FIVE, '♥'),
+                new Card(Rank.FIVE, '♦'),
+                new Card(Rank.FIVE, '♠'),
+                new Card(Rank.FIVE, '♣')
         );
         assertEquals(expectedHandCards, handCards);
     }

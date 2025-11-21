@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 import sdm.running.example.Card;
 import sdm.running.example.CribbageHand;
+import sdm.running.example.Rank;
 
 import java.util.Arrays;
 
@@ -12,12 +13,12 @@ public class FlushTest {
     void one_for_is_nob() {
         CribbageHand cribbageHand = new CribbageHand(
                 Arrays.asList(
-                        new Card('J', '♣'),
-                        new Card('7', '♥'),
-                        new Card('A', '♣'),
-                        new Card('K', '♦')
+                        new Card(Rank.JACK, '♣'),
+                        new Card(Rank.SEVEN, '♥'),
+                        new Card(Rank.ACE, '♣'),
+                        new Card(Rank.KING, '♦')
                 ),
-                new Card('3', '♣')
+                new Card(Rank.THREE, '♣')
         );
         assertEquals(1, cribbageHand.computeScore());
     }
@@ -26,12 +27,12 @@ public class FlushTest {
     void no_points() {
         CribbageHand cribbageHand = new CribbageHand(
                 Arrays.asList(
-                        new Card('J', '♣'),
-                        new Card('7', '♥'),
-                        new Card('A', '♣'),
-                        new Card('K', '♦')
+                        new Card(Rank.JACK, '♣'),
+                        new Card(Rank.SEVEN, '♥'),
+                        new Card(Rank.ACE, '♣'),
+                        new Card(Rank.KING, '♦')
                 ),
-                new Card('3', '♦')
+                new Card(Rank.THREE, '♦')
         );
         assertEquals(0, cribbageHand.computeScore());
     }
@@ -40,12 +41,12 @@ public class FlushTest {
     void four_points_for_hand_cards_of_same_suite() {
         CribbageHand cribbageHand = new CribbageHand(
                 Arrays.asList(
-                        new Card('3', '♣'),
-                        new Card('7', '♣'),
-                        new Card('A', '♣'),
-                        new Card('K', '♣')
+                        new Card(Rank.THREE, '♣'),
+                        new Card(Rank.SEVEN, '♣'),
+                        new Card(Rank.ACE, '♣'),
+                        new Card(Rank.KING, '♣')
                 ),
-                new Card('J', '♦')
+                new Card(Rank.JACK, '♦')
         );
         assertEquals(4, cribbageHand.computeScore());
     }
@@ -54,12 +55,12 @@ public class FlushTest {
     void five_points_for_all_cards_of_same_suite() {
         CribbageHand cribbageHand = new CribbageHand(
                 Arrays.asList(
-                        new Card('3', '♣'),
-                        new Card('7', '♣'),
-                        new Card('A', '♣'),
-                        new Card('K', '♣')
+                        new Card(Rank.THREE, '♣'),
+                        new Card(Rank.SEVEN, '♣'),
+                        new Card(Rank.ACE, '♣'),
+                        new Card(Rank.KING, '♣')
                 ),
-                new Card('J', '♣')
+                new Card(Rank.JACK, '♣')
         );
         assertEquals(5, cribbageHand.computeScore());
     }

@@ -56,7 +56,7 @@ public class CribbageHand {
     }
 
     private int pointsForHisNob() {
-        if (handCards.contains(new Card('J', starterCard.suite()))) {
+        if (handCards.contains(new Card(Rank.JACK, starterCard.suite()))) {
             return 1;
         }
         return 0;

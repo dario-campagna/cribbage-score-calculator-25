@@ -1,15 +1,15 @@
 package sdm.running.example;
 
 public class Card {
-    private final char rank;
+    private final Rank rank;
     private final char suite;
-
-    public Card(char rank, char suite) {
+    
+    public Card(Rank rank, char suite) {
         this.rank = rank;
         this.suite = suite;
     }
 
-    public char rank() {
+    public Rank rank() {
         return rank;
     }
 
@@ -21,13 +21,13 @@ public class Card {
     public final boolean equals(Object o) {
         if (!(o instanceof Card card)) return false;
 
-        return rank == card.rank && suite == card.suite;
+        return suite == card.suite && rank == card.rank;
     }
 
     @Override
     public int hashCode() {
-        int result = rank;
-        result = 31 * result + suite;
+        int result = suite;
+        result = 31 * result + rank.hashCode();
         return result;
     }
 
