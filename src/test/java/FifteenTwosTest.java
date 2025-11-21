@@ -11,7 +11,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FifteenTwosTest {
 
     @Test
-    @Disabled
     void on_Five_and_one_Queen() {
         CribbageHand cribbageHand = new CribbageHand(
                 Arrays.asList(
@@ -24,4 +23,5 @@ public class FifteenTwosTest {
         );
         assertEquals(2, cribbageHand.computeScore());
     }
+    
 }

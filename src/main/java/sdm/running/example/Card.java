@@ -35,4 +35,8 @@ public class Card {
     public String toString() {
         return "" + rank + suite;
     }
+
+    public int sum(Card card) {
+        return this.rank.asNumber() + card.rank.asNumber();
+    }
 }

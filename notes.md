@@ -35,5 +35,6 @@
   - ~~"6♥Q♦Q♠Q♣Q♠" -> 12~~
 - Multiple rules apply
   - ~~"3♣7♣A♣K♣K♦" -> 6 points~~
+  - ~~"5♥Q♦Q♠7♣6♠" -> 6 points~~
 - Fifteen Twos
-  - "5♥Q♦A♠7♣6♠" -> 2
+  - ~~"5♥Q♦A♠7♣6♠" -> 2 points~~

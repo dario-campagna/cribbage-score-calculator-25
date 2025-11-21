@@ -22,5 +22,19 @@ public class MutipleRulesTest {
         );
         assertEquals(6, cribbageHand.computeScore());
     }
+
+    @Test
+    void on_Five_and_two_Queens() {
+        CribbageHand cribbageHand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.FIVE, '♥'),
+                        new Card(Rank.QUEEN, '♦'),
+                        new Card(Rank.QUEEN, '♠'),
+                        new Card(Rank.SEVEN, '♣')
+                ),
+                new Card(Rank.SIX, '♠')
+        );
+        assertEquals(6, cribbageHand.computeScore());
+    }
     
 }

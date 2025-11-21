@@ -27,7 +27,21 @@ public class CribbageHand {
         score += pointsForFlush();
         score += pointsForHisNob();
         score += pointsForPairs();
+        score += pointsForFifteeenTwos();
         return score;
+    }
+
+    private long pointsForFifteeenTwos() {
+        List<Card> allCards = new ArrayList<>(handCards);
+        allCards.add(starterCard);
+
+        allCards = new ArrayList<>(handCards);
+        allCards.add(starterCard);
+        long fifteenTwos = Generator.combination(allCards).simple(2).stream().filter(pair -> pair.getFirst().sum(pair.getLast()) == 15).count();
+        if (fifteenTwos > 0) {
+            return fifteenTwos * 2;
+        }
+        return 0;
     }
 
     private long pointsForPairs() {
