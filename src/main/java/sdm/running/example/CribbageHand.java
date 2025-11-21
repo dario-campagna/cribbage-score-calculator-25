@@ -38,10 +38,15 @@ public class CribbageHand {
         allCards = new ArrayList<>(handCards);
         allCards.add(starterCard);
         long fifteenTwos = Generator.combination(allCards).simple(2).stream().filter(pair -> pair.getFirst().sum(pair.getLast()) == 15).count();
-        if (fifteenTwos > 0) {
-            return fifteenTwos * 2;
+        long fifteenTwosThree = Generator.combination(allCards).simple(3).stream().filter(cards -> sum(cards) == 15).count();
+        if (fifteenTwos > 0 || fifteenTwosThree > 0) {
+            return fifteenTwos * 2 + fifteenTwosThree * 2;
         }
         return 0;
+    }
+
+    private int sum(List<Card> cards) {
+        return cards.stream().mapToInt(card -> card.rank().asNumber()).sum();
     }
 
     private long pointsForPairs() {

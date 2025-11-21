@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FifteenTwosTest {
 
     @Test
-    void on_Five_and_one_Queen() {
+    void one_Five_and_one_Queen() {
         CribbageHand cribbageHand = new CribbageHand(
                 Arrays.asList(
                         new Card(Rank.FIVE, '♥'),
@@ -20,6 +20,20 @@ public class FifteenTwosTest {
                         new Card(Rank.SEVEN, '♣')
                 ),
                 new Card(Rank.SIX, '♠')
+        );
+        assertEquals(2, cribbageHand.computeScore());
+    }
+
+    @Test
+    void one_Five_one_Nine_and_one_Four() {
+        CribbageHand cribbageHand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.FIVE, '♥'),
+                        new Card(Rank.NINE, '♦'),
+                        new Card(Rank.ACE, '♠'),
+                        new Card(Rank.SEVEN, '♣')
+                ),
+                new Card(Rank.FOUR, '♠')
         );
         assertEquals(2, cribbageHand.computeScore());
     }
