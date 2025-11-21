@@ -23,37 +23,30 @@ public class CribbageHand {
     }
 
     public long computeScore() {
-        int score = 0;
+        long score = 0;
         score += pointsForFlush();
         score += pointsForHisNob();
         score += pointsForPairs();
-        score += pointsForFifteeenTwos();
+        score += pointsForFifteenTwos();
         return score;
     }
 
-    private long pointsForFifteeenTwos() {
+    private long pointsForFifteenTwos() {
         List<Card> allCards = new ArrayList<>(handCards);
         allCards.add(starterCard);
-
-        allCards = new ArrayList<>(handCards);
-        allCards.add(starterCard);
-        long fifteenTwos = Generator.combination(allCards).simple(2).stream().filter(pair -> pair.getFirst().sum(pair.getLast()) == 15).count();
-        long fifteenTwosThree = Generator.combination(allCards).simple(3).stream().filter(cards -> sum(cards) == 15).count();
-        if (fifteenTwos > 0 || fifteenTwosThree > 0) {
-            return fifteenTwos * 2 + fifteenTwosThree * 2;
+        long combinations = Generator.subset(allCards).simple().stream().filter(cards -> sum(cards) == 15).count();
+        if (combinations > 0) {
+            return combinations * 2;
         }
         return 0;
     }
 
     private int sum(List<Card> cards) {
-        return cards.stream().mapToInt(card -> card.rank().asNumber()).sum();
+        return cards.stream().mapToInt(Card::value).sum();
     }
 
     private long pointsForPairs() {
         List<Card> allCards = new ArrayList<>(handCards);
-        allCards.add(starterCard);
-
-        allCards = new ArrayList<>(handCards);
         allCards.add(starterCard);
         long pairs = Generator.combination(allCards).simple(2).stream().filter(pair -> pair.getFirst().rank() == pair.getLast().rank()).count();
         if (pairs > 0) {
@@ -62,7 +55,7 @@ public class CribbageHand {
         return 0;
     }
 
-    private int pointsForFlush() {
+    private long pointsForFlush() {
         int points = 0;
         char suite = handCards.getFirst().suite();
         if (handCards.stream().allMatch(card -> card.suite() == suite)) {
@@ -74,7 +67,7 @@ public class CribbageHand {
         return points;
     }
 
-    private int pointsForHisNob() {
+    private long pointsForHisNob() {
         if (handCards.contains(new Card(Rank.JACK, starterCard.suite()))) {
             return 1;
         }

@@ -17,6 +17,10 @@ public class Card {
         return suite;
     }
 
+    public int value() {
+        return rank.asNumber();
+    }
+
     @Override
     public final boolean equals(Object o) {
         if (!(o instanceof Card card)) return false;
@@ -34,9 +38,5 @@ public class Card {
     @Override
     public String toString() {
         return "" + rank + suite;
-    }
-
-    public int sum(Card card) {
-        return this.rank.asNumber() + card.rank.asNumber();
     }
 }

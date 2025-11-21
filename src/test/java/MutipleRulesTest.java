@@ -36,5 +36,32 @@ public class MutipleRulesTest {
         );
         assertEquals(6, cribbageHand.computeScore());
     }
-    
+
+    @Test
+    void fifteenTwos_pairs_and_one_for_his_nob() {
+        CribbageHand cribbageHand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.FIVE, '♥'),
+                        new Card(Rank.FIVE, '♦'),
+                        new Card(Rank.FIVE, '♠'),
+                        new Card(Rank.JACK, '♣')
+                ),
+                new Card(Rank.FIVE, '♣')
+        );
+        assertEquals(29, cribbageHand.computeScore());
+    }
+
+    @Test
+    void fifteenTwos_and_pairs() {
+        CribbageHand cribbageHand = new CribbageHand(
+                Arrays.asList(
+                        new Card(Rank.ACE, '♥'),
+                        new Card(Rank.ACE, '♦'),
+                        new Card(Rank.FOUR, '♠'),
+                        new Card(Rank.THREE, '♣')
+                ),
+                new Card(Rank.SIX, '♣')
+        );
+        assertEquals(4, cribbageHand.computeScore());
+    }
 }
