@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 import sdm.running.example.Card;
 import sdm.running.example.CribbageHand;
+import sdm.running.example.PairsRule;
 import sdm.running.example.Rank;
 
 import java.util.Arrays;
@@ -8,6 +9,8 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PairsTest {
+
+    private PairsRule pairsRule = new PairsRule();
 
     @Test
     void two_points_for_one_pair() {
@@ -20,7 +23,7 @@ public class PairsTest {
                 ),
                 new Card(Rank.SIX, '♣')
         );
-        assertEquals(2, cribbageHand.computeScore());
+        assertEquals(2, pairsRule.applyTo(cribbageHand));
     }
 
     @Test
@@ -34,7 +37,7 @@ public class PairsTest {
                 ),
                 new Card(Rank.SIX, '♣')
         );
-        assertEquals(6, cribbageHand.computeScore());
+        assertEquals(6, pairsRule.applyTo(cribbageHand));
     }
 
     @Test
@@ -48,6 +51,6 @@ public class PairsTest {
                 ),
                 new Card(Rank.QUEEN, '♠')
         );
-        assertEquals(12, cribbageHand.computeScore());
+        assertEquals(12, pairsRule.applyTo(cribbageHand));
     }
 }

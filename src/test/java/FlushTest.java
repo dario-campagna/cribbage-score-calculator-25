@@ -1,7 +1,5 @@
 import org.junit.jupiter.api.Test;
-import sdm.running.example.Card;
-import sdm.running.example.CribbageHand;
-import sdm.running.example.Rank;
+import sdm.running.example.*;
 
 import java.util.Arrays;
 
@@ -9,6 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FlushTest {
 
+    private FlushRule flushRule = new FlushRule();
+    
     @Test
     void one_for_is_nob() {
         CribbageHand cribbageHand = new CribbageHand(
@@ -20,7 +20,7 @@ public class FlushTest {
                 ),
                 new Card(Rank.THREE, '♣')
         );
-        assertEquals(1, cribbageHand.computeScore());
+        assertEquals(1, new NobRule().applyTo(cribbageHand));
     }
 
     @Test
@@ -34,7 +34,7 @@ public class FlushTest {
                 ),
                 new Card(Rank.THREE, '♦')
         );
-        assertEquals(0, cribbageHand.computeScore());
+        assertEquals(0, flushRule.applyTo(cribbageHand));
     }
 
     @Test
@@ -48,7 +48,7 @@ public class FlushTest {
                 ),
                 new Card(Rank.JACK, '♦')
         );
-        assertEquals(4, cribbageHand.computeScore());
+        assertEquals(4, flushRule.applyTo(cribbageHand));
     }
 
     @Test
@@ -62,6 +62,6 @@ public class FlushTest {
                 ),
                 new Card(Rank.JACK, '♣')
         );
-        assertEquals(5, cribbageHand.computeScore());
+        assertEquals(5, flushRule.applyTo(cribbageHand));
     }
 }

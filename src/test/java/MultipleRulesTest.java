@@ -1,7 +1,5 @@
 import org.junit.jupiter.api.Test;
-import sdm.running.example.Card;
-import sdm.running.example.CribbageHand;
-import sdm.running.example.Rank;
+import sdm.running.example.*;
 
 import java.util.Arrays;
 
@@ -9,6 +7,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MultipleRulesTest {
 
+    private ScoreCalculator scoreCalculator = new ScoreCalculator(Arrays.asList(
+            new FlushRule(),
+            new PairsRule(),
+            new FifteenTwosRule(),
+            new NobRule()
+    ));
+    
     @Test
     void four_card_of_the_same_suite_and_a_pair() {
         CribbageHand cribbageHand = new CribbageHand(
@@ -20,7 +25,7 @@ public class MultipleRulesTest {
                 ),
                 new Card(Rank.KING, '♦')
         );
-        assertEquals(6, cribbageHand.computeScore());
+        assertEquals(6, scoreCalculator.computeScore(cribbageHand));
     }
 
     @Test
@@ -34,7 +39,7 @@ public class MultipleRulesTest {
                 ),
                 new Card(Rank.SIX, '♠')
         );
-        assertEquals(6, cribbageHand.computeScore());
+        assertEquals(6, scoreCalculator.computeScore(cribbageHand));
     }
 
     @Test
@@ -48,7 +53,7 @@ public class MultipleRulesTest {
                 ),
                 new Card(Rank.FIVE, '♣')
         );
-        assertEquals(29, cribbageHand.computeScore());
+        assertEquals(29, scoreCalculator.computeScore(cribbageHand));
     }
 
     @Test
@@ -62,6 +67,6 @@ public class MultipleRulesTest {
                 ),
                 new Card(Rank.SIX, '♣')
         );
-        assertEquals(4, cribbageHand.computeScore());
+        assertEquals(4, scoreCalculator.computeScore(cribbageHand));
     }
 }

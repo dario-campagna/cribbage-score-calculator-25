@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 import sdm.running.example.Card;
 import sdm.running.example.CribbageHand;
+import sdm.running.example.FifteenTwosRule;
 import sdm.running.example.Rank;
 
 import java.util.Arrays;
@@ -8,6 +9,8 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FifteenTwosTest {
+
+    private final FifteenTwosRule fifteenTwosRule = new FifteenTwosRule();
 
     @Test
     void one_Five_and_one_Queen() {
@@ -20,7 +23,7 @@ public class FifteenTwosTest {
                 ),
                 new Card(Rank.SIX, '♠')
         );
-        assertEquals(2, cribbageHand.computeScore());
+        assertEquals(2, fifteenTwosRule.applyTo(cribbageHand));
     }
 
     @Test
@@ -34,7 +37,7 @@ public class FifteenTwosTest {
                 ),
                 new Card(Rank.FOUR, '♠')
         );
-        assertEquals(2, cribbageHand.computeScore());
+        assertEquals(2, fifteenTwosRule.applyTo(cribbageHand));
     }
 
     @Test
@@ -48,7 +51,7 @@ public class FifteenTwosTest {
                 ),
                 new Card(Rank.THREE, '♠')
         );
-        assertEquals(6, cribbageHand.computeScore());
+        assertEquals(6, fifteenTwosRule.applyTo(cribbageHand));
     }
 
 }
