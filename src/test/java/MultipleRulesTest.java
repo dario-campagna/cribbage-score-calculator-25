@@ -15,7 +15,7 @@ public class MultipleRulesTest {
     ));
     
     @Test
-    void four_card_of_the_same_suite_and_a_pair() {
+    void four_card_of_the_same_suit_and_a_pair() {
         CribbageHand cribbageHand = new CribbageHand(
                 Arrays.asList(
                         new Card(Rank.THREE, '♣'),

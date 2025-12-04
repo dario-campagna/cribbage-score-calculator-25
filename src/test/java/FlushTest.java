@@ -38,7 +38,7 @@ public class FlushTest {
     }
 
     @Test
-    void four_points_for_hand_cards_of_same_suite() {
+    void four_points_for_hand_cards_of_same_suit() {
         CribbageHand cribbageHand = new CribbageHand(
                 Arrays.asList(
                         new Card(Rank.THREE, '♣'),
@@ -52,7 +52,7 @@ public class FlushTest {
     }
 
     @Test
-    void five_points_for_all_cards_of_same_suite() {
+    void five_points_for_all_cards_of_same_suit() {
         CribbageHand cribbageHand = new CribbageHand(
                 Arrays.asList(
                         new Card(Rank.THREE, '♣'),

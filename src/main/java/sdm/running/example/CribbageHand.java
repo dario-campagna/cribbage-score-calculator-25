@@ -40,16 +40,16 @@ public class CribbageHand {
         return cards.stream().mapToInt(Card::value).sum();
     }
 
-    public boolean starterCardHasSameSuiteOfHandCards() {
-        return handCards.stream().allMatch(card -> card.suite() == starterCard.suite());
+    public boolean starterCardHasSameSuitOfHandCards() {
+        return handCards.stream().allMatch(card -> card.suit() == starterCard.suit());
 }
 
-    public boolean allHandCardsHavaSameSuite() {
-        char suite = handCards.getFirst().suite();
-        return handCards.stream().allMatch(card -> card.suite() == suite);
+    public boolean allHandCardsHavaSameSuit() {
+        char suit = handCards.getFirst().suit();
+        return handCards.stream().allMatch(card -> card.suit() == suit);
     }
 
     public boolean hasIsNob() {
-        return handCards.contains(new Card(Rank.JACK, starterCard.suite()));
+        return handCards.contains(new Card(Rank.JACK, starterCard.suit()));
     }
 }

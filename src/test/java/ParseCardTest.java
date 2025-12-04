@@ -19,7 +19,7 @@ public class ParseCardTest {
     }
 
     @Test
-    void card_with_suite_Hearts() {
-        assertEquals('♥', cardParser.parse("3♥").suite());
+    void card_with_suit_Hearts() {
+        assertEquals('♥', cardParser.parse("3♥").suit());
     }
 }

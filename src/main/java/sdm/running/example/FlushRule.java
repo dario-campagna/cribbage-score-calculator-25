@@ -4,9 +4,9 @@ public class FlushRule implements CribbageRule {
     
     public long applyTo(CribbageHand cribbageHand) {
         int points = 0;
-        if (cribbageHand.allHandCardsHavaSameSuite()) {
+        if (cribbageHand.allHandCardsHavaSameSuit()) {
             points += 4;
-            if (cribbageHand.starterCardHasSameSuiteOfHandCards()) {
+            if (cribbageHand.starterCardHasSameSuitOfHandCards()) {
                 points++;
             }
         }

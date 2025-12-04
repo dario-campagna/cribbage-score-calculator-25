@@ -33,7 +33,7 @@ public class ParsHandTest {
     }
 
     @Test
-    void hand_cards_Five_of_all_suites() {
+    void hand_cards_Five_of_all_suits() {
         CribbageHand cribbageHand = new HandParser().parse("5♥5♦5♠5♣7♣");
         List<Card> handCards = cribbageHand.handCards();
         List<Card> expectedHandCards = Arrays.asList(
